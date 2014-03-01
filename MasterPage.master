@@ -1,0 +1,78 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <!-- Custom -->
+    <link href="css/master.css" rel="stylesheet" />
+    <!-- Datepicker -->
+    <link href="css/datepicker.css" rel="stylesheet" />
+    <link href="less/datepicker.less" rel="stylesheet" />
+    
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div class="logo"><asp:Image ID="logo" ImageUrl="img/LogoNoTitle.png" Height="80" Width="80" runat="server" /></div>
+    <!--Header-->
+    <div class="navbar navbar-inverse navbar-fixed-top glass header" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            
+            <a href="Default.aspx" class="navbar-brand">Kabayan Beach Resort</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navul navbar-right">
+                <li><a href="Room.aspx">Rooms</a></li>
+                <li><a href="Book.aspx">Booking</a></li>
+                <li><a href="AboutUs.aspx">About Us</a></li>
+                <li><a href="ContactUs.aspx">Contact Us</a></li>
+            </ul>
+        </div>
+      </div>
+    </div>
+    <form id="form1" runat="server">
+        <div class="content glass">
+            <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+    
+    <!--jQuery-->
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="js/bootstrap.js" type="text/javascript"></script>
+    <script src="js/docs.js" type="text/javascript"></script>
+    <script src="js/bootstrap-datepicker.js" type="text/javascript"></script>
+    <script src="js/datepicker.js" type="text/javascript"></script>
+    
+    <script type="text/javascript">
+
+        $('.divimg').hover(function () {
+            $(this).stop();
+            $(this).find('.image').animate({ width: 0 }, 400);
+        }, function () {
+            $(this).stop();
+            $(this).find('.image').animate({ width: '100%' }, 400);
+        });
+
+        /*
+        $('.click').click(function () {
+            $(this).stop();
+            $('.form1').animate({ width: 0 }, 400);
+        });
+        */
+            
+      </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+﻿body 
+{
+    padding-top: 60px;
+    background-image:url('../../img/adminbg2.jpg');
+    min-width:1050px;
+}
+
+.navbar
+{
+    background-color:Black;
+    /*background-color:#b1e6fc;*/
+    /*background-color:#00137f;*/
+}
+
+.navbar a
+{
+    color:Black;
+    font-size:15px;
+}
+
+.gv
+{
+    text-align:center;
+    margin-right:auto;
+    margin-left:auto;
+    background-color:White;
+    border:2px solid black;
+}
+
+th
+{
+    padding-left:20px;
+    padding-right:20px;
+    text-align:center;
+}
+
+tr
+{
+    text-align:center;
+}
+td
+{
+    text-align:center;
+}
+td a
+{
+    padding:5px;
+}
+.notif
+{
+    width:300px;
+    overflow:auto;
+    max-height:1000px;
+}
+.content
+{
+    position:relative;
+    width:960px;
+    left:50%;
+    margin-left:-480px;
+}
+
+/*notification*/
+
+.notifbar
+{
+    position:fixed;
+    top:100px;
+    right:-380px;
+    width:400px;
+    background-color:White;
+    z-index:1000;
+    border:2px solid black;
+}

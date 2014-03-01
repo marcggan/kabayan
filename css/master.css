@@ -1,0 +1,126 @@
+body
+{
+    background-image:url('../img/wood.jpg');
+    padding-top:50px;
+    padding-bottom:0px;
+    padding-left:0;
+    padding-right:0;
+    margin:0;
+    min-width:960px;
+}
+
+.glass {
+	font-family: 'PT Sans', arial, serif;
+	color:#ffffff;
+	text-align:center;
+	font-size:12px;
+	font-weight:bold;
+	
+	text-shadow: /* Simulating Text Stroke */
+        -1px -1px 0 #000, 
+        1px -1px 0 #000, 
+        -1px 1px 0 #000, 
+        1px 1px 0 #000;
+	
+	border: 1px solid rgba(0,0,0,0.5);
+	border-bottom: 3px solid rgba(0,0,0,0.5);
+	
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	
+	background: rgba(0,0,0,0.25);
+
+    -o-box-shadow: 
+        0 2px 8px rgba(0,0,0,0.5),
+        inset 0 1px rgba(255,255,255,0.3),
+        inset 0 10px rgba(255,255,255,0.2),
+        inset 0 10px 20px rgba(255,255,255,0.25),
+        inset 0 -15px 30px rgba(0,0,0,0.3);
+
+    -webkit-box-shadow: 
+        0 2px 8px rgba(0,0,0,0.5),
+        inset 0 1px rgba(255,255,255,0.3),
+        inset 0 10px rgba(255,255,255,0.2),
+        inset 0 10px 20px rgba(255,255,255,0.25),
+        inset 0 -15px 30px rgba(0,0,0,0.3);
+
+    -moz-box-shadow:
+        0 2px 8px rgba(0,0,0,0.5),
+        inset 0 1px rgba(255,255,255,0.3),
+        inset 0 10px rgba(255,255,255,0.2),
+        inset 0 10px 20px rgba(255,255,255,0.25),
+        inset 0 -15px 30px rgba(0,0,0,0.3);
+	
+	box-shadow: 
+        0 2px 8px rgba(0,0,0,0.5), /* Exterior Shadow */
+        inset 0 1px rgba(255,255,255,0.3), /* Top light Line */
+        inset 0 10px rgba(255,255,255,0.2), /* Top Light Shadow */
+        inset 0 10px 20px rgba(255,255,255,0.25), /* Sides Light Shadow */
+        inset 0 -15px 30px rgba(0,0,0,0.3); /* Dark Background */
+	display: inline-block;
+	text-decoration: none;
+	/*margin-top:20px;
+	padding:8px;*/
+}
+
+.header
+{
+    position:absolute;
+    /*padding:5px;*/
+    margin:0;
+    padding:0;
+    text-align:left;
+    width:inherit;
+    /*min-width:960px;*/
+    background-image:url("../img/darkwood.jpg");
+    font-size:16px;
+    z-index: 100;
+}
+
+.footer
+{
+    text-align:left;
+    width:100%;
+}
+
+.datepicker
+{
+    color:#000000;
+    width:auto;
+}
+
+.firstrow
+{
+    padding-top:25px;
+}
+
+.logo
+{
+    position:absolute;
+    top:10px;
+    z-index:1000;
+    width:80px;
+    left:20px;
+}
+.content
+{
+    position:relative;
+    width:960px;
+    left:50%;
+    margin-left:-480px;
+    padding:0px;
+}
+.form-control
+{
+    margin-left:auto;
+    margin-right:auto;
+}
+.navbar-brand
+{
+    padding-left:120px;
+}
+.content2
+{
+    padding:30px;
+}

@@ -1,0 +1,20 @@
+﻿body 
+{
+    background-image:url('../../img/adminbg.jpg');
+    background-repeat:inherit;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #eee;
+}
+
+.form-signin {
+  max-width: 300px;
+  padding: 15px;
+  margin: 0 auto;
+  text-align:Center;
+}
+
+.form-control
+{
+    margin-bottom: 10px;
+}
