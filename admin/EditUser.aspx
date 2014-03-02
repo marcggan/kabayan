@@ -4,7 +4,7 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-<div class="container">
+    <div class="container">
         <div class="form-horizontal">
         <div class="form-group">
             <asp:Label class="col-xs-2 col-xs-offset-3 control-label" ID="lblUsername" runat="server" Text="Username:"></asp:Label>
@@ -70,6 +70,5 @@
             </div>
         </div>
         </div>
-        
     </div>
 </asp:Content>

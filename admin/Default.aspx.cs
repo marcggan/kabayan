@@ -31,26 +31,16 @@ public partial class admin_Default : System.Web.UI.Page
         SqlDataReader dr = com.ExecuteReader();
         while (dr.Read())
         {
-            if (dr.HasRows)
+            if (pwd == dr["userPassword"].ToString())
             {
-                if (pwd == dr["userPassword"].ToString())
-                {
-                    Session["username"] = dr["username"].ToString();
-                    Session["role"] = dr["roleID"].ToString();
-                    conn.Close();
-                    Response.Redirect("Admin.aspx");
-                }
-                else
-                {
-                    lblCheck.Text = "Password is not correct";
-                }
-            }
-            else
-            {
-                lblCheck.Text = "User does not exist";
-            }
-
-            conn.Close();
+                Session["username"] = dr["username"].ToString();
+                Session["role"] = dr["roleID"].ToString();
+                conn.Close();
+                Response.Redirect("Admin.aspx");
+            }     
         }
+        conn.Close();
+        lblCheck.Text = "Username or password is incorrect";
+
     }
 }
