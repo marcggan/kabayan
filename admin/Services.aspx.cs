@@ -46,7 +46,7 @@ public partial class admin_Services : System.Web.UI.Page
         SqlCommand com = new SqlCommand(cmdtext, conn);
         com.Parameters.Add("@serviceID", SqlDbType.Int).Value = gvServices.SelectedValue;
         conn.Open();
-        SqlDataReader dr = com.ExecuteReader();
+        com.ExecuteNonQuery();
         conn.Close();
         Response.Redirect("~/Admin/Services.aspx");
     }

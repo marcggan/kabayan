@@ -44,7 +44,7 @@ public partial class admin_EditRoom : System.Web.UI.Page
         com.Parameters.Add("@roomStatus", SqlDbType.VarChar).Value = ddlStatus.SelectedValue;
         com.Parameters.Add("@ID", SqlDbType.VarChar).Value = Request.QueryString["roomId"];
         conn.Open();
-        SqlDataReader dr = com.ExecuteReader();
+        com.ExecuteNonQuery();
         conn.Close();
         Response.Redirect("Rooms.aspx");
     }

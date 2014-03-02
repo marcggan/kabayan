@@ -9,11 +9,13 @@
 <body>
     <form id="form1" runat="server">
     <div>
-    <asp:Label ID="lblName" runat="server" Text="Name:"></asp:Label>
-    <asp:TextBox ID="txtName" runat"server"></asp:TextBox>
+    <asp:Label ID="lblSubject" runat="server" Text="Name:"></asp:Label>
+    <asp:TextBox ID="txtSubject" runat="server"></asp:TextBox>
     <br />
     <asp:Label ID="lblMessage" runat="server" Text="Message:"></asp:Label>
     <asp:TextBox ID="txtMessage" runat="server" TextMode="MultiLine" MaxLength="2"></asp:TextBox>
+    <br />
+    <asp:Button ID="btnSend" runat="server" OnClick="btnSend_Click" Text="Send" />
     </div>
     </form>
 </body>

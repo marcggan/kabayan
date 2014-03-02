@@ -43,7 +43,7 @@ public partial class admin_EditCustomer : System.Web.UI.Page
         com.Parameters.Add("@Email", SqlDbType.VarChar).Value = txtEmail.Text;
         com.Parameters.Add("@ID", SqlDbType.VarChar).Value = Request.QueryString["customerId"];
         conn.Open();
-        SqlDataReader dr = com.ExecuteReader();
+        com.ExecuteNonQuery();
         conn.Close();
         Response.Redirect("Customers.aspx");
     }

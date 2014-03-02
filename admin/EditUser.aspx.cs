@@ -46,7 +46,7 @@ public partial class admin_EditUser : System.Web.UI.Page
         com.Parameters.Add("@Role", SqlDbType.VarChar).Value = ddlRole.Text;
         com.Parameters.Add("@ID", SqlDbType.VarChar).Value = Request.QueryString["userId"];
         conn.Open();
-        SqlDataReader dr = com.ExecuteReader();
+        com.ExecuteNonQuery();
         conn.Close();
         Response.Redirect("Users.aspx");
     }

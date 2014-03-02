@@ -61,7 +61,8 @@ public partial class admin_Image : System.Web.UI.Page
         com.Parameters.Add("@imageBest", SqlDbType.Int).Value = ddlImage.SelectedValue;
         com.Parameters.Add("@roomId", SqlDbType.Int).Value = roomId;
         conn.Open();
-        SqlDataReader dr = com.ExecuteReader();
+        com.ExecuteNonQuery();
+        conn.Close();
         lblImagename.Text = "Image Uploaded";
     }
     private void getImages()

@@ -64,6 +64,7 @@ public partial class admin_AddRoom : System.Web.UI.Page
         com.Parameters.Add("@roomExcessofMax", SqlDbType.VarChar).Value = txtExcess.Text;
         com.Parameters.Add("@roomStatus", SqlDbType.VarChar).Value = ddlStatus.SelectedValue;
         conn.Open();
-        SqlDataReader dr = com.ExecuteReader();
+        com.ExecuteNonQuery();
+        conn.Close();
     }
 }

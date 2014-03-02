@@ -75,7 +75,7 @@ public partial class admin_AddBooking : System.Web.UI.Page
         com.Parameters.Add("@paymentmethod", SqlDbType.Int).Value = ddlPayment.SelectedValue;
         com.Parameters.Add("@bookingPaid", SqlDbType.Int).Value = ddlPaid.SelectedValue;
         conn.Open();
-        SqlDataReader dr = com.ExecuteReader();
+        com.ExecuteNonQuery();
         conn.Close();
     }
     private void getCustomers()

@@ -80,7 +80,7 @@ public partial class Book : System.Web.UI.Page
         com.Parameters.Add("@paymentmethod", SqlDbType.Int).Value = ddlPayment.SelectedValue;
         com.Parameters.Add("@bookingPaid", SqlDbType.Int).Value = 0;
         conn.Open();
-        SqlDataReader dr = com.ExecuteReader();
+        com.ExecuteNonQuery();
         conn.Close();
     }
 }

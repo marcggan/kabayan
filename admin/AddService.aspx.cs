@@ -37,7 +37,8 @@ public partial class admin_AddService : System.Web.UI.Page
         com.Parameters.Add("@servicePrice", SqlDbType.Decimal).Value = txtPrice.Text;
         com.Parameters.Add("@serviceCapacity", SqlDbType.Int).Value = txtCapacity.Text;
         conn.Open();
-        SqlDataReader dr = com.ExecuteReader();
+        com.ExecuteNonQuery();
+        conn.Close();
     }
     private void getCategories()
     {

@@ -82,7 +82,7 @@ public partial class admin_EditBooking : System.Web.UI.Page
         com.Parameters.Add("@bookingPaid", SqlDbType.Int).Value = ddlPaid.SelectedValue;
         com.Parameters.Add("@bookingId", SqlDbType.Int).Value = Request.QueryString["id"];
         conn.Open();
-        SqlDataReader dr = com.ExecuteReader();
+        com.ExecuteNonQuery();
         conn.Close();
         //Response.Redirect("Bookings.aspx");
         
@@ -155,7 +155,7 @@ public partial class admin_EditBooking : System.Web.UI.Page
         SqlCommand com = new SqlCommand(cmdtext, conn);
         com.Parameters.Add("@id", SqlDbType.Int).Value = Request.QueryString["Id"];
         conn.Open();
-        SqlDataReader dr = com.ExecuteReader();
+        com.ExecuteNonQuery();
         conn.Close();
         Modal.Close(this, "OK");
     }

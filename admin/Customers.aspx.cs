@@ -46,7 +46,7 @@ public partial class admin_Customers : System.Web.UI.Page
         SqlCommand com = new SqlCommand(cmdtext, conn);
         com.Parameters.Add("@customerID", SqlDbType.Int).Value = gvCustomers.SelectedValue;
         conn.Open();
-        SqlDataReader dr = com.ExecuteReader();
+        com.ExecuteNonQuery();
         conn.Close();
         Response.Redirect("~/Admin/Customers.aspx");
     }

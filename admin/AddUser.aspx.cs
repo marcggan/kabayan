@@ -71,6 +71,7 @@ public partial class admin_AddEmployees : System.Web.UI.Page
         com.Parameters.Add("@Email", SqlDbType.VarChar).Value = txtEmail.Text;
         com.Parameters.Add("@Role", SqlDbType.VarChar).Value = ddlRole.Text;
         conn.Open();
-        SqlDataReader dr = com.ExecuteReader();
+        com.ExecuteNonQuery();
+        conn.Close();
     }
 }

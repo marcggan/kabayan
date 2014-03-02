@@ -37,6 +37,7 @@ public partial class admin_AddCustomer : System.Web.UI.Page
         com.Parameters.Add("@CellPhone", SqlDbType.VarChar).Value = txtCellPhone.Text;
         com.Parameters.Add("@Email", SqlDbType.VarChar).Value = txtEmail.Text;
         conn.Open();
-        SqlDataReader dr = com.ExecuteReader();
+        com.ExecuteNonQuery();
+        conn.Close();
     }
 }

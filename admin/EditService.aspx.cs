@@ -43,7 +43,7 @@ public partial class admin_EditService : System.Web.UI.Page
         com.Parameters.Add("@serviceCapacity", SqlDbType.Int).Value = txtCapacity.Text;
         com.Parameters.Add("@ID", SqlDbType.VarChar).Value = Request.QueryString["serviceId"];
         conn.Open();
-        SqlDataReader dr = com.ExecuteReader();
+        com.ExecuteNonQuery();
         conn.Close();
         Response.Redirect("Services.aspx");
     }

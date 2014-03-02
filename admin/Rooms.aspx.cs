@@ -52,7 +52,7 @@ public partial class admin_Rooms : System.Web.UI.Page
         SqlCommand com = new SqlCommand(cmdtext, conn);
         com.Parameters.Add("@roomID", SqlDbType.Int).Value = gvRooms.SelectedValue;
         conn.Open();
-        SqlDataReader dr = com.ExecuteReader();
+        com.ExecuteNonQuery();
         conn.Close();
         Response.Redirect("~/Admin/Rooms.aspx");
     }

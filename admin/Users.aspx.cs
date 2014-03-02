@@ -48,7 +48,7 @@ public partial class admin_Employees : System.Web.UI.Page
         SqlCommand com = new SqlCommand(cmdtext, conn);
         com.Parameters.Add("@userID", SqlDbType.Int).Value = gvUsers.SelectedValue;
         conn.Open();
-        SqlDataReader dr = com.ExecuteReader();
+        com.ExecuteNonQuery();
         conn.Close();
         Response.Redirect("~/Admin/Users.aspx");
     }
