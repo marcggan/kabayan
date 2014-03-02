@@ -2,14 +2,7 @@
 {
     padding-top: 60px;
     background-image:url('../../img/adminbg2.jpg');
-    min-width:1050px;
-}
-
-.navbar
-{
-    background-color:Black;
-    /*background-color:#b1e6fc;*/
-    /*background-color:#00137f;*/
+    min-width:960px;
 }
 
 .navbar a
