@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 
 public partial class admin_EditCustomer : System.Web.UI.Page
 {
+    string Email;
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Request.QueryString["customerId"] == null)
@@ -19,12 +20,21 @@ public partial class admin_EditCustomer : System.Web.UI.Page
         }
         if (!IsPostBack)
         {
+            
             GetCustomer();
         }
     }
     protected void btnEdit_Click(object sender, EventArgs e)
     {
-        editCustomer();
+        if (Session["custEmail"].ToString() == txtEmail.Text)
+        {
+            editCustomer();
+            Response.Redirect("Customers.aspx");
+        }
+        else
+        {
+            checkEmail();
+        }
     }
     protected void btnCancel_Click(object seder, EventArgs e)
     {
@@ -65,9 +75,33 @@ public partial class admin_EditCustomer : System.Web.UI.Page
                 txtAddress.Text = dr["customerAddress"].ToString();
                 txtCellPhone.Text = dr["customerCellPhone"].ToString();
                 txtEmail.Text = dr["customerEmail"].ToString();
+                Session["custEmail"] = dr["customerEmail"].ToString();
             }
+            conn.Close();
         }
+    }
+    private void checkEmail()
+    {
+        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+        String cmdtext = "SELECT customerEmail FROM customers WHERE customerEmail = @customerEmail";
+        SqlCommand com = new SqlCommand(cmdtext, conn);
+        com.Parameters.Add("@customerEmail", SqlDbType.VarChar).Value = txtEmail.Text;
+        conn.Open();
+        SqlDataReader dr = com.ExecuteReader();
 
+        if (dr.HasRows)
+        {
+            while (dr.Read())
+            {
+                lblCheck.Text = "Email is already in use";
+            }
 
+        }
+        else
+        {
+            editCustomer();
+            conn.Close();
+            Response.Redirect("Customers.aspx");
+        }
     }
 }

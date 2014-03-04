@@ -33,6 +33,7 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navul navbar-right">
+                <li><hr /></li>
                 <li><a href="Room.aspx">Rooms</a></li>
                 <li><a href="Book.aspx">Booking</a></li>
                 <li><a href="AboutUs.aspx">About Us</a></li>

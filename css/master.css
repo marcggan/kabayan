@@ -1,6 +1,8 @@
 body
 {
     background-image:url('../img/wood.jpg');
+    background-repeat:no-repeat;
+    background-color:#562500;
     padding-top:50px;
     padding-bottom:0px;
     padding-left:0;
@@ -66,7 +68,7 @@ body
 
 .header
 {
-    position:absolute;
+    position:Fixed;
     /*padding:5px;*/
     margin:0;
     padding:0;
@@ -76,6 +78,7 @@ body
     background-image:url("../img/darkwood.jpg");
     font-size:16px;
     z-index: 100;
+    min-width:400px;
 }
 
 .footer
@@ -97,7 +100,7 @@ body
 
 .logo
 {
-    position:absolute;
+    position:fixed;
     top:10px;
     z-index:1000;
     width:80px;

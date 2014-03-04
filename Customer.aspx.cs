@@ -4,53 +4,27 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.Security;//Hash
 using System.Configuration;
 using System.Data;
 using System.Data.Sql;
 using System.Data.SqlClient;
 
-public partial class Book : System.Web.UI.Page
+public partial class Customer : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["customerName"] != null)
+        {
+            lblWelcome.Text = "Welcome back, " + Session["customerName"].ToString();
+        }
+        else
+        {
+            Response.Redirect("Default.aspx");
+        }
         if (!IsPostBack)
         {
             getAllRooms();
         }
-    }
-    protected void btnRoom_Click(object sender, EventArgs e)
-    {
-
-    }
-    protected void btnLogIn_Click(object sender, EventArgs e)
-    {
-        string pwd = FormsAuthentication.HashPasswordForStoringInConfigFile(txtPassword.Text, "SHA1");
-
-        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
-        String cmdtext = "SELECT customerId, customerFName + ' ' + customerLName AS customerName,customerEmail,customerPassword FROM customers WHERE customerEmail = @Email;";
-        SqlCommand com = new SqlCommand(cmdtext, conn);
-        com.Parameters.Add("@email", SqlDbType.VarChar).Value = txtEmail2.Text;
-
-        conn.Open();
-        SqlDataReader dr = com.ExecuteReader();
-        while (dr.Read())
-        {
-            if (pwd == dr["customerPassword"].ToString())
-            {
-                Session["customerId"] = dr["customerId"].ToString();
-                Session["customerEmail"] = dr["customerEmail"].ToString();
-                Session["customerName"] = dr["customerName"].ToString();
-                conn.Close();
-                Response.Redirect("Customer.aspx");
-            }
-            else
-            {
-                lblCheck.Text = "Email or password is incorrect";
-            }
-        }
-        conn.Close();
-        
     }
     protected void btnBook_Click(object sender, EventArgs e)
     {
@@ -82,7 +56,7 @@ public partial class Book : System.Web.UI.Page
             lblErrorCap.Text = null;
             lblErrorDate.Text = null;
             lblError.Text = "Booking Successful";
-            addCustomer();
+            addBooking();
         }
     }
     private void getAllRooms()
@@ -97,41 +71,14 @@ public partial class Book : System.Web.UI.Page
         ddlRoom.DataValueField = "roomId";
         ddlRoom.DataBind();
     }
-    private void suggestRoom()
-    {
-
-    }
-    private void addCustomer()
-    {
-        string pwd = FormsAuthentication.HashPasswordForStoringInConfigFile(txtPassword1.Text, "SHA1");
-        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
-        String cmdtext = "INSERT INTO customers (customerLName,customerFName,customerGender,customerAddress,customerCellPhone,customerEmail,customerPassword) " +
-            "VALUES (@LName,@FName,@Gender,@Address,@CellPhone,@Email,@Password);" +
-            "SELECT SCOPE_IDENTITY() AS customerID;";
-        SqlCommand com = new SqlCommand(cmdtext, conn);
-        com.Parameters.Add("@LName", SqlDbType.VarChar).Value = txtLName.Text;
-        com.Parameters.Add("@FName", SqlDbType.VarChar).Value = txtFName.Text;
-        com.Parameters.Add("@Gender", SqlDbType.VarChar).Value = ddlGender.Text;
-        com.Parameters.Add("@Address", SqlDbType.VarChar).Value = txtAddress.Text;
-        com.Parameters.Add("@CellPhone", SqlDbType.VarChar).Value = txtCellPhone.Text;
-        com.Parameters.Add("@Email", SqlDbType.VarChar).Value = txtEmail.Text;
-        com.Parameters.Add("@Password", SqlDbType.VarChar).Value = pwd;
-        conn.Open();
-        SqlDataReader dr = com.ExecuteReader();
-        while (dr.Read())
-        {
-            string customerId = dr["customerID"].ToString();
-            addBooking(customerId);
-        }
-    }
-    private void addBooking(string customerId)
+    private void addBooking()
     {
         DateTime checkin = DateTime.Parse(txtCheckIn.Text);
         DateTime checkout = DateTime.Parse(txtCheckOut.Text);
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
         String cmdtext = "INSERT INTO bookings (customerID,roomID,bookingDate,bookingStart,bookingEnd,bookingStatus,bookingGuests,paymentmethodid,bookingPaid) VALUES (@customerID,@roomID,@bookingDate,@bookingStart,@bookingEnd,@bookingStatus,@bookingGuests,@paymentmethod,@bookingPaid);";
         SqlCommand com = new SqlCommand(cmdtext, conn);
-        com.Parameters.Add("@customerID", SqlDbType.Int).Value = customerId;
+        com.Parameters.Add("@customerID", SqlDbType.Int).Value = Session["customerId"].ToString();
         com.Parameters.Add("@roomID", SqlDbType.Int).Value = ddlRoom.SelectedValue;
         com.Parameters.Add("@bookingDate", SqlDbType.DateTime).Value = DateTime.Now;
         com.Parameters.Add("@bookingStart", SqlDbType.DateTime).Value = checkin;                                                                             //SQL SERVER

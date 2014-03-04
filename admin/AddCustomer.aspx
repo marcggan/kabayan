@@ -41,13 +41,24 @@
             <div class="col-xs-3">
                 
             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtEmail"
-            ErrorMessage="Not a Valid Email Address" SetFocusOnError="True" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
-            ></asp:RegularExpressionValidator>&nbsp;
+            ErrorMessage="Not a Valid Email Address" SetFocusOnError="True" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
             <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="txtEmail"
             ErrorMessage="*" ToolTip="E-mail is required."></asp:RequiredFieldValidator>
-            
+            <br />
+            <asp:Label ID="lblCheck" runat="server"></asp:Label>
             </div>
             <br/>
+            <asp:Label class="col-xs-2 col-xs-offset-3 control-label" ID="lblPassword" runat="server" Text="Password:"></asp:Label>
+            <div class="col-xs-4"><asp:Textbox class="form-control" ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox></div>
+            <div class="col-xs-3"><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" ControlToValidate="txtPassword"></asp:RequiredFieldValidator>
+            <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Password does not match" ControlToValidate="txtPassword" ControlToCompare="txtPassword2"></asp:CompareValidator></div>
+            <br/>
+            <asp:Label class="col-xs-2 col-xs-offset-3 control-label" ID="lblPassword2" runat="server" Text="Re-Type Password:"></asp:Label>
+            <div class="col-xs-4"><asp:Textbox class="form-control" ID="txtPassword2" runat="server" TextMode="Password"></asp:TextBox></div>
+            <div class="col-xs-3"><asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" ControlToValidate="txtPassword2"></asp:RequiredFieldValidator></div>
+            <br/>
+
+
             
             <div class="col-xs-1 col-xs-offset-5">
             <asp:Button class="btn btn-block btn-primary" ID="btnAdd" runat="server" Text="Add" onclick="btnAdd_Click" CausesValidation="True" />

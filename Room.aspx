@@ -90,13 +90,13 @@
                         <asp:Label ID="lblCheckIn" class="control-label" runat="server" Text="Check In"></asp:Label>
                            <!-- ReadOnly="true" -->
                         <asp:TextBox ID="txtCheckIn" runat="server" class="checkin datepicker form-control"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ControlToValidate="txtCheckIn" ValidationGroup="filter"></asp:RequiredFieldValidator>
+                            <!--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ControlToValidate="txtCheckIn" ValidationGroup="filter"></asp:RequiredFieldValidator>-->
                         </div>
                         <div class='col-xs-3'>
                         <asp:Label ID="lblCheckOut" class="control-label" runat="server" Text="Check Out"></asp:Label>
                               <!-- ReadOnly="true" -->
                         <asp:TextBox ID="txtCheckOut" runat="server" class="datepicker checkout form-control"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" ControlToValidate="txtCheckOut" ValidationGroup="filter"></asp:RequiredFieldValidator>
+                            <!--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" ControlToValidate="txtCheckOut" ValidationGroup="filter"></asp:RequiredFieldValidator>-->
                         </div>
                     </div>
                     <div class="row">
@@ -106,7 +106,7 @@
                             onclick="btnFilter_Click"/>
                         </div>
                         <div class='col-xs-3'>
-                        <asp:Button ID="btnClear" class="btn btn-default btn-block" CssClass="disabled" 
+                        <asp:Button ID="btnClear" class="btn btn-default btn-block" 
                             Text="Clear filter" runat="server" onclick="btnClear_Click"/>
                         </div>
                     </div>

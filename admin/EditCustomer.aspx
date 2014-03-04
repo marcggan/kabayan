@@ -45,7 +45,8 @@
             ></asp:RegularExpressionValidator>&nbsp;
             <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="txtEmail"
             ErrorMessage="*" ToolTip="E-mail is required."></asp:RequiredFieldValidator>
-            
+            <br />
+            <asp:Label ID="lblCheck" runat="server"></asp:Label>
             </div>
             <br/>
             

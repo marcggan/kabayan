@@ -21,13 +21,10 @@ public partial class Room : System.Web.UI.Page
     }
     protected void btnFilter_Click(object sender, EventArgs e)
     {
-        string start = txtCheckIn.Text;
-        string end = txtCheckOut.Text;
         divRooms.InnerHtml = null;
         string c = txtCapacity.Text;
-        String cmdText = "SELECT rooms.roomId,rooms.roomname,rooms.roomDetails,rooms.roomLyingCapacity,rooms.roomMaxCapacity,rooms.roomExcessofMax,rooms.roomPricePerNight,images.imagepath FROM images INNER JOIN rooms ON images.roomId = rooms.roomId WHERE images.imageBest = 1 AND rooms.roomLyingCapacity >= "+c+" ORDER BY roomLyingCapacity;";
+        String cmdText = "SELECT rooms.roomId,rooms.roomname,rooms.roomDetails,rooms.roomLyingCapacity,rooms.roomMaxCapacity,rooms.roomExcessofMax,rooms.roomPricePerNight,images.imagepath FROM images INNER JOIN rooms ON images.roomId = rooms.roomId WHERE images.imageBest = 1 AND rooms.roomLyingCapacity >= " + c + " ORDER BY roomLyingCapacity;";
         getAllRooms(cmdText);
-        btnClear.CssClass = btnClear.CssClass.Replace("disabled", "");
     }
     private void getAllRooms(string cmdText)
     {
@@ -65,8 +62,5 @@ public partial class Room : System.Web.UI.Page
         divRooms.InnerHtml = null;
         String cmdText = "SELECT rooms.roomId,rooms.roomname,rooms.roomDetails,rooms.roomLyingCapacity,rooms.roomMaxCapacity,rooms.roomExcessofMax,rooms.roomPricePerNight,images.imagepath FROM images INNER JOIN rooms ON images.roomId = rooms.roomId WHERE images.imageBest = 1;";
         getAllRooms(cmdText);
-
-        btnClear.Attributes.Add("CssClass", "disabled");
-         
     }
 }
