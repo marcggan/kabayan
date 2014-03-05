@@ -141,10 +141,13 @@
         </HeaderColumns>
     </DayPilot:DayPilotScheduler>
     </div>
+    <br />
     <div class="container">
-    <div class="col-xs-1 col-xs-offset-5">
-    <asp:Button class="btn btn-block btn-primary" ID="btnBack" runat="server" Text="Back" 
-        onclick="btnBack_Click" CausesValidation="False" />
-    </div>
+        <div class="row"></div>
+            <div class="col-xs-4 col-xs-offset-4">
+            <asp:Button class="btn btn-block btn-primary" ID="btnBack" runat="server" Text="Back" 
+                onclick="btnBack_Click" CausesValidation="False" />
+            </div>
+        </div>
 </asp:Content>
 

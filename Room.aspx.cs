@@ -37,7 +37,7 @@ public partial class Room : System.Web.UI.Page
             string imageurl = dr["imagePath"].ToString();
             imageurl = imageurl.Substring(2, imageurl.Length - 2);
             string html =
-    "    <div class='col-xs-3 divimg'>" +
+    "    <div class='col-xs-6 col-md-3 divimg'>" +
     "        <div class='show'>"+
     "            Description: <b>" + dr["roomDetails"] + "</b><br />" +
     "            Lying Capacity: <b>" + dr["roomLyingCapacity"] + "</b><br />" +

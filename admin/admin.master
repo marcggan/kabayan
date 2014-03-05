@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.css" rel="stylesheet">
 
@@ -33,16 +34,12 @@
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reports<b class="caret"></b></a>
                       <ul class="dropdown-menu">
-                        <li><a href=#>Arrival List</a></li>
-                        <li><a href=#>Customer List</a></li>
-                        <li><a href=#>Rooms</a></li>
+
                       </ul>
                     </li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Notifications<b class="caret"></b></a>
-                      <ul id="notifications" class="notif dropdown-menu">
-                        
-                      </ul>
+                    <li id="notifications" class="dropdown">
+                        <a href='#' class='dropdown-toggle' data-toggle='dropdown'>Notifications<b class='caret'></b></a>
+                      <ul id='Ul1' class='notif dropdown-menu'></ul>
                     </li>
                     
                     <li><a><asp:Label ID="lblUsername" runat="server" class="user" Text="Username"></asp:Label></a></li>
@@ -58,32 +55,25 @@
         <div class="col-sx-3 sidebar">
         <ul class="nav nav-sidebar">
             <li><a href="Bookings.aspx">Booking</a></li>
-            <li><a href="Transactions.aspx">Transactions</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
+        </ul>
+        <ul class="nav nav-sidebar">
             <li><a href="Users.aspx">Users</a></li>
             <li><a href="Customers.aspx">Customers</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
+        </ul>
+        <ul class="nav nav-sidebar">
             <li><a href="Rooms.aspx">Rooms</a></li>
             <li><a href="Services.aspx">Services</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
+        </ul>
+        <ul class="nav nav-sidebar">
             <li><a href="Feedbacks.aspx">Feedback</a></li>
-          </ul>
+        </ul>
         </div>
         <div class="col-sx-9 col-sx-offset-3 main">
             <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-      </div>
+    </div>
 
-
-    
-
-
-
-    
     </form>
     <script type="text/javascript" src="../js/jquery.js"></script>
     <script type="text/javascript" src="../js/bootstrap.js"></script>
@@ -91,18 +81,10 @@
     
     <script type="text/javascript">
         $(document).ready(function () {
-            $("#notifications").load("https://www.facebook.com");
+            $("#notifications").load("Notifications.aspx");
             setInterval(function () {
-                $("#notifications").load("https://www.facebook.com");
+                $("#notifications").load("Notifications.aspx");
             }, 3000);
-
-            $('.notifbar').hover(function () {
-                $(this).stop();
-                $(this).animate({ right:'-2px' }, 400);
-            }, function () {
-                $(this).stop();
-                $(this).animate({ right: '-380px' }, 400);
-            });
         });
 
     </script>

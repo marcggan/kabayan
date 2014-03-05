@@ -41,19 +41,21 @@
         </asp:SqlDataSource>
     </div>
     <br />
-    <div class="col-xs-1 col-xs-offset-4">
-    <asp:Button class="btn btn-primary btn-block" ID="btnAdd" runat="server" Text="Add" onclick="btnAdd_Click" CausesValidation="False" />
-    </div>
-    <div class="col-xs-1">
-    <asp:Button CssClass="btn btn-primary btn-block disabled" ID="btnDelete" runat="server" Text="Delete" 
-        onclick="btnDelete_Click" CausesValidation="False" 
-        PostBackUrl="Customers.aspx" />
-    </div>
-    <div class="col-xs-1">
-    <asp:Button CssClass="btn btn-primary btn-block disabled" ID="btnUpdate" runat="server" Text="Update" onclick="btnUpdate_Click" CausesValidation="False" />
-    </div>
-    <div class="col-xs-1">
-    <asp:Button class="btn btn-primary btn-block" ID="btnBack" runat="server" Text="Back" onclick="btnBack_Click" CausesValidation="False" />
+    <div class="row">
+        <div class="col-xs-3 col-sm-2 col-sm-offset-2">
+        <asp:Button class="btn btn-primary btn-block" ID="btnAdd" runat="server" Text="Add" onclick="btnAdd_Click" CausesValidation="False" />
+        </div>
+        <div class="col-xs-3 col-sm-2">
+        <asp:Button CssClass="btn btn-primary btn-block disabled" ID="btnDelete" runat="server" Text="Delete" 
+            onclick="btnDelete_Click" CausesValidation="False" 
+            PostBackUrl="Customers.aspx" />
+        </div>
+        <div class="col-xs-3 col-sm-2">
+        <asp:Button CssClass="btn btn-primary btn-block disabled" ID="btnUpdate" runat="server" Text="Update" onclick="btnUpdate_Click" CausesValidation="False" />
+        </div>
+        <div class="col-xs-3 col-sm-2">
+        <asp:Button class="btn btn-primary btn-block" ID="btnBack" runat="server" Text="Back" onclick="btnBack_Click" CausesValidation="False" />
+        </div>
     </div>
 </asp:Content>
 

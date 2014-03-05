@@ -31,9 +31,8 @@ public partial class admin_Bookings : System.Web.UI.Page
             DayPilotScheduler1.StartDate = new DateTime(DateTime.Today.Year, 1, 1);
             DayPilotScheduler1.DataSource = dbGetEvents(DayPilotScheduler1.StartDate, DayPilotScheduler1.Days);
             DayPilotScheduler1.DataBind();
-
-            // scroll to this month
-            DateTime firstOfMonth = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
+            // scroll to this month                                                          //1
+            DateTime firstOfMonth = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day - 2);
             DayPilotScheduler1.SetScrollX(firstOfMonth);
         }
     }
@@ -141,7 +140,7 @@ public partial class admin_Bookings : System.Web.UI.Page
         }
 
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
-        String cmdtext = "SELECT roomId, roomName, roomLyingCapacity, roomStatus FROM rooms WHERE roomLyingCapacity = @rooms or @rooms = 0;";
+        String cmdtext = "SELECT roomId, roomName, roomLyingCapacity, roomMaxCapacity, roomStatus FROM rooms WHERE roomLyingCapacity = @rooms or @rooms = 0;";
         SqlDataAdapter da = new SqlDataAdapter(cmdtext, conn);
         da.SelectCommand.Parameters.AddWithValue("@rooms", roomFilter);
         DataTable dt = new DataTable();
@@ -153,11 +152,12 @@ public partial class admin_Bookings : System.Web.UI.Page
             string id = Convert.ToString(r["roomId"]);
             string status = (string)r["roomStatus"];
             int beds = Convert.ToInt32(r["roomLyingCapacity"]);
-            //string bedsFormatted = (beds == 1) ? "1 bed" : String.Format("{0} beds", beds);
+            int max = Convert.ToInt32(r["roomMaxCapacity"]);
+            string bedsFormatted = (beds == 1) ? "1 Lying<br />1 Max" : String.Format("{0} Lying<br />{1} Max", beds,max);
 
             Resource res = new Resource(name, id);
             res.DataItem = r;
-            //res.Columns.Add(new ResourceColumn(bedsFormatted));
+            res.Columns.Add(new ResourceColumn(bedsFormatted));
             res.Columns.Add(new ResourceColumn(status));
 
             DayPilotScheduler1.Resources.Add(res);

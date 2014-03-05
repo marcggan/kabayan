@@ -8,8 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div id="notify" runat="server">
-    </div>
+    
     </form>
 </body>
 </html>

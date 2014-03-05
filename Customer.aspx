@@ -65,6 +65,12 @@
                 <asp:Button class="btn btn-primary" ID="btnBook" runat="server" Text="Book" ValidationGroup="book"
                     onclick="btnBook_Click" />
             </div>
+            <br />
+            <div class="row">
+                <div class="col-xs-4 col-xs-offset-4">
+                    <a class="btn btn-primary btn-block" href="Feedback.aspx">FeedBack</a>
+                </div>
+            </div>
         </div>
         </div>
     </div>

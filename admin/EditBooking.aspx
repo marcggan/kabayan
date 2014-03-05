@@ -93,19 +93,24 @@
             <div class="col-xs-1">
             <asp:RequiredFieldValidator ID="RequiredFieldValidator16" runat="server" ErrorMessage="*" ControlToValidate="ddlPaid"></asp:RequiredFieldValidator>
             </div>
-            <div class="col-xs-4">
+            <div class="col-xs-3">
             <br/><br/>
             <asp:Button class="btn btn-primary btn-block" ID="btnEdit" runat="server" Text="Edit" onclick="btnEdit_Click" CausesValidation="True" />
             </div>
-            <div class="col-xs-4">
+            <div class="col-xs-3">
             <br/><br/>
             <asp:Button class="btn btn-primary btn-block" ID="btnDelete" runat="server" Text="Delete" 
                 onclick="btnDelete_Click" CausesValidation="False" />
             </div>
-            <div class="col-xs-4">
+            <div class="col-xs-3">
             <br/><br/>
             <asp:Button class="btn btn-primary btn-block" ID="btnCancel" runat="server" Text="Cancel" 
                 onclick="btnCancel_Click" CausesValidation="False" />
+            </div>
+            <div class="col-xs-3">
+            <br/><br/>
+            <asp:Button class="btn btn-primary btn-block" ID="btnTransactions" runat="server" Text="Transactions" 
+                onclick="btnTransaction_Click" CausesValidation="False" />
             </div>
         </div>
         </div>

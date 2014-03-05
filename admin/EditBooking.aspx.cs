@@ -59,6 +59,10 @@ public partial class admin_EditBooking : System.Web.UI.Page
     {
         deleteBooking();
     }
+    protected void btnTransaction_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Transaction.aspx?bookingId=" + Request.QueryString["id"]);
+    }
     protected void btnCancel_Click(object seder, EventArgs e)
     {
         //Response.Redirect("Users.aspx");

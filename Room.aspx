@@ -33,8 +33,9 @@
       border:1px solid black;
     }
     .filter{
-      height:130px;
+      height:150px;
       padding:0px;
+      padding-bottom:20px;
       margin:0px;
       border:1px solid black;
     }
@@ -78,7 +79,7 @@
             <div class='col-xs-12 filter'>
                 <div class='show first'>
                     <div class="row">
-                        <div class='col-xs-2 col-xs-offset-2'>
+                        <div class='col-xs-4 col-md-2 col-md-offset-2'>
                             <asp:Label ID="lblCapacity" class="control-label" Text="Capacity: " runat="server"></asp:Label>
                             <asp:TextBox ID="txtCapacity" runat="server" class="form-control cap"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*" ControlToValidate="txtCapacity" ValidationGroup="filter"></asp:RequiredFieldValidator>
@@ -86,13 +87,13 @@
                                 MinimumValue="1" MaximumValue="40" ControlToValidate="txtCapacity" 
                                 ErrorMessage="Please enter a valid number" ValidationGroup="filter" />
                         </div>
-                        <div class='col-xs-3'>
+                        <div class='col-xs-4 col-md-3'>
                         <asp:Label ID="lblCheckIn" class="control-label" runat="server" Text="Check In"></asp:Label>
                            <!-- ReadOnly="true" -->
                         <asp:TextBox ID="txtCheckIn" runat="server" class="checkin datepicker form-control"></asp:TextBox>
                             <!--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ControlToValidate="txtCheckIn" ValidationGroup="filter"></asp:RequiredFieldValidator>-->
                         </div>
-                        <div class='col-xs-3'>
+                        <div class='col-xs-4 col-md-3'>
                         <asp:Label ID="lblCheckOut" class="control-label" runat="server" Text="Check Out"></asp:Label>
                               <!-- ReadOnly="true" -->
                         <asp:TextBox ID="txtCheckOut" runat="server" class="datepicker checkout form-control"></asp:TextBox>
@@ -100,12 +101,12 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class='col-xs-3 col-xs-offset-3'>
+                        <div class='col-xs-5 col-md-3 col-md-offset-3'>
                         <asp:Button ID="btnFilter" class="btn btn-default btn-block" 
                             Text="Filter" runat="server" CausesValidation="true" ValidationGroup="filter" 
                             onclick="btnFilter_Click"/>
                         </div>
-                        <div class='col-xs-3'>
+                        <div class='col-xs-5 col-md-3'>
                         <asp:Button ID="btnClear" class="btn btn-default btn-block" 
                             Text="Clear filter" runat="server" onclick="btnClear_Click"/>
                         </div>
@@ -113,7 +114,7 @@
                 </div>
             </div>
             <div id="divRooms" runat="server"></div>
-            <div class='col-xs-3 divimg'>
+            <div class='col-xs-6 col-md-3 divimg'>
                 <div class='show'>
                     <h2><a href='#' class='btn btn-block backtop button' >Back to top</a></h2>
                 </div>

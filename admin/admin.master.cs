@@ -34,7 +34,6 @@ public partial class admin_admin : System.Web.UI.MasterPage
         String cmdtext = "SELECT username FROM users WHERE username = @username;";
         SqlCommand com = new SqlCommand(cmdtext, conn);
         com.Parameters.Add("@username", SqlDbType.VarChar).Value = Session["username"];
-
         if (Session["username"] != null)
         {
             conn.Open();
@@ -46,11 +45,13 @@ public partial class admin_admin : System.Web.UI.MasterPage
             }
             else
             {
+                conn.Close();
                 Response.Redirect("Default.aspx");
             }
         }
         else
         {
+            conn.Close();
             Response.Redirect("Default.aspx");
         }
     }
@@ -62,6 +63,7 @@ public partial class admin_admin : System.Web.UI.MasterPage
         com.Parameters.Add("@notifId", SqlDbType.Int).Value = Request.QueryString["notifId"];
         conn.Open();
         com.ExecuteNonQuery();
+        conn.Close();
     }
     
 }
